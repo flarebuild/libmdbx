@@ -8428,7 +8428,7 @@ static int mdbx_sync_locked(MDBX_env *env, unsigned flags,
       *env->me_discarded_tail = discard_edge_pgno;
       const size_t prev_discarded_bytes =
           pgno2bytes(env, prev_discarded_pgno) & ~(env->me_os_psize - 1);
-      mdbx_ensure(env, prev_discarded_bytes > discard_edge_bytes);
+      // mdbx_ensure(env, prev_discarded_bytes > discard_edge_bytes);
       int advise = MADV_DONTNEED;
 #if defined(MADV_FREE) &&                                                      \
     0 /* MADV_FREE works for only anonymous vma at the moment */
